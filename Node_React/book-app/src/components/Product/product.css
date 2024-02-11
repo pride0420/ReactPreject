@@ -1,0 +1,28 @@
+.butoon-shop{
+    display: flex;
+    justify-content: center; /* 水平居中对齐 */
+  }
+  .butoon-shop button {
+    margin: 5px; /* 为按钮添加间距 */
+}
+.list-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .list-item {
+    display: flex;
+    margin: 20px; /* 为每个项目添加一些间隔 */
+  }
+
+  .item-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 垂直居中对齐 */
+    text-align: center; /* 水平居中对齐 */
+  }
+  
+  .item-image {
+    width: auto; /* 设置图片宽度为50% */
+    height: 250px;
+  }

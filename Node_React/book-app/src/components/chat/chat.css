@@ -1,0 +1,31 @@
+.table{
+    width: 700px;
+    margin-bottom: 0px; /* 設置間距為20像素 */
+}
+body{
+    background-color: rgb(235, 158, 129);
+}
+.chatBox{
+    background-color: rgb(235, 158, 129);
+    position: relative;
+    margin-top: 2%;
+}
+.button{
+    display: flex;
+    justify-content: space-between; /* 讓子元素盡可能分散排列，左右對齊 */
+}
+.button-left{
+    margin-left: 10px;
+}
+.button-right{
+    margin-right: 10px;
+}
+
+.chat-content{
+
+    height: 100px;
+}
+.right-content {
+    display: flex;
+    align-items: center; /* 子元素垂直居中对齐 */
+}

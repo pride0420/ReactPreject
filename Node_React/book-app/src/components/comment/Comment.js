@@ -4,7 +4,7 @@ import Navibar from '../Navibar/Navibar'
 import Footer from '../Footer/Footer'
 import './comment.css';
 import CommentItem from './CommentItem';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import { MemberContext } from '../MemberContext';
 import CommentList from './CommentList';
 function Comment() {
@@ -92,6 +92,7 @@ function Comment() {
                         <td>
                             <input type='submit' value="ok" />
                             <input type='reset' value='清除' />
+                            <Link to="/chat"><button>回首頁</button></Link>
                         </td>
                     </tr>
                 </table>

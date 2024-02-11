@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.example.demo.vo.Chat;
 import com.example.demo.vo.view.ChatView;
@@ -27,6 +28,9 @@ public interface ChatMapper {
 
 	@Select("select * from chatview where memberId=#{memberId} order by chatId desc")
 	List<ChatView> queryUserChat(Integer memberId);
+	
+	@Update("update chat set content=#{content} where chatId=#{chatId}")
+	void updateChat(Chat c);
 
 	@Delete("delete from chat where chatId=#{chatId}")
 	void deleteChat(Integer chatId);

@@ -70,4 +70,13 @@ public class ChatServiceImpl implements ChatService {
 		cm.deleteChat(c.getChatId());
 	}
 
+	@Override
+	public void updateChat(Chat c) {
+		Chat ch=cm.queryId(c.getChatId());
+		ch.setContent(c.getContent());
+		cm.updateChat(ch);
+		
+		
+	}
+
 }

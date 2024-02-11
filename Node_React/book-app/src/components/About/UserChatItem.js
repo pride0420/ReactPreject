@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import './about.css'
 import { MemberContext } from '../MemberContext';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 export default function UserChatItem(props) {
     const { userChatListInfo, queryUserChat } = props;
     const { chatId, name, content, firsttime } = userChatListInfo;
@@ -23,7 +24,6 @@ export default function UserChatItem(props) {
                 props.queryUserChat();
             })
     }
-
     return (
         <>
             <table align='center' border={1} className='table'>
@@ -36,6 +36,9 @@ export default function UserChatItem(props) {
                 </tr>
                 <tr>
                     <td colSpan={2} >
+                        <Link to={`/setchat/${chatId}`}>
+                            <button className='button-left'>修改</button>
+                        </Link>
                         <button className='button-right' onClick={() => { deleteChat(chatId); queryUserChat(); }}>刪除</button>
                     </td>
                 </tr>

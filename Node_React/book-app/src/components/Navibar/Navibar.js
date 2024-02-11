@@ -20,12 +20,12 @@ function Navibar() {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                     </button>
-                    <Link to="/chat" className="navbar-brand" >飛鳥</Link>
+                    <Link to="/chat" className="navbar-brand" >神龍</Link>
                 </div>
 
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul className="nav navbar-nav navbar-right">
-                        <li><Link to="/chat">首頁</Link></li>
+                        <li><Link to="/chat">留言板</Link></li>
                         <li><Link to="/about">關於我</Link></li>
                         <li><Link to="/shop">產品目錄</Link></li>
                         <li><Link to="/" onClick={RestMember}>登出</Link></li>

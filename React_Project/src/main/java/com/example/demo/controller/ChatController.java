@@ -54,4 +54,9 @@ public class ChatController {
 		csi.deleteChat(chatId);
 		return "刪除成功";
 	}
+	
+	@PostMapping("updateChat")
+	public void updateChat(@RequestBody Chat c) {
+		csi.updateChat(c);
+	}
 }

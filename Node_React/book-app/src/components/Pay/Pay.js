@@ -3,6 +3,7 @@ import Navibar from '../Navibar/Navibar';
 import { MemberContext } from '../MemberContext';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 export default function Pay() {
     const { member } = useContext(MemberContext);
     const [email, setEmail] = useState(member.email);
@@ -61,7 +62,7 @@ export default function Pay() {
                 <caption><h2>訂單資訊</h2></caption>
                 <tr>
                     <td>商家:</td>
-                    <td>飛鳥</td>
+                    <td>神龍</td>
                 </tr>
                 <tr>
                     <td>購買者:</td>
@@ -118,7 +119,7 @@ export default function Pay() {
                     </tr>
                 </table>
             </form>
-            <br />
+            <Footer />
         </>
     )
 }

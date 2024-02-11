@@ -8,6 +8,7 @@ import Pay from './components/Pay/Pay';
 import Chat from './components/chat/Chat';
 import Comment from './components/comment/Comment';
 import { MemberProvider } from './components/MemberContext'
+import SetChat from './components/About/SetChat';
 function App() {
   return (
     <MemberProvider>
@@ -15,6 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/setchat" element={<SetChat />} />
+          <Route path='/setchat/:chatId' element={<SetChat />} />
           <Route path="/shop" element={<Shop />} />
           <Route path='/products' element={<Product />} />
           <Route path='/products/:items' element={<Product />} />

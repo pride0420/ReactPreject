@@ -11,6 +11,7 @@ export default function Car() {
     const memberId = member.memberId;
     const [carList, setCarList] = useState(null);
     const [sum, setSum] = useState(0);
+    
     const test = () => {
         axios.get(`http://localhost:8080/car/queryCar?memberId=${memberId}`)
             .then(response => {

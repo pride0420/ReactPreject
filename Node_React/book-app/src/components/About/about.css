@@ -24,3 +24,11 @@
 .button-right{
     float: right;
 }
+.button-left{
+    float: left;
+}
+
+.setChat{
+    text-align: center;
+    height: 100px;
+}

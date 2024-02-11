@@ -15,5 +15,7 @@ public interface ChatService {
 
 	List<ChatView> queryUserChat(Integer memberId);
 
+	void updateChat(Chat c);
+	
 	void deleteChat(Integer chatId);
 }

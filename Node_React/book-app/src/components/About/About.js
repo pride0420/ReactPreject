@@ -24,7 +24,6 @@ class About extends Component {
 
     }
 
-
     render() {
         return (
             <>
@@ -39,10 +38,7 @@ class About extends Component {
                         </div>
                         <div>{this.state.value ? <SetUser /> : <UserChat />}</div>
                     </div>
-
                 </div>
-
-
                 <Footer />
             </>
         );

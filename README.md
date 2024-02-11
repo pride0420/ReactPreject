@@ -1,11 +1,9 @@
 <h1>這是一個有留言板及商城的作品</h1>
 <h3>
-  後端用的是spring boot maven+mybatis+mysql
-  後端vo是資料庫樣式，mapper是sql語法，透過service實作，再藉由controller控制
-  
-  前端用react+css製作
-
-  作品內容:
+  後端用的是spring boot maven+mybatis+mysql<br>
+  後端vo是資料庫樣式，mapper是sql語法，透過service實作，再藉由controller控制<br>
+  前端用react+css製作<br>
+  作品內容:<br>
   註冊完成後會發送郵件到使用這信箱，登入後是留言板，可以看到其他帳好的貼文，能進行收藏及留言，
   在"關於我"的地方能修改資料、註銷帳號及刪除帳號所發布的貼文，
   商城部分能將商品加入到購物車，也能檢視購物車內容，

@@ -31,7 +31,7 @@ CREATE TABLE `member` (
   `phone` varchar(45) NOT NULL,
   PRIMARY KEY (`memberId`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT INTO `member` VALUES (60,'root','1','哈伊','adsa@adsa.ads','023'),(71,'lll','l','l','lp07128120@gmail.com','l'),(72,'aaaaaaaa','a','a','lp07128120@gmail.com','0'),(73,'oooooooo','o','o','lp07128120@gmail.com','o'),(74,'111111111','1','1','adsa@adsa.ads','1'),(75,'22','2','2','adsa@adsa.ads','2'),(76,'sss','1','1','a@a.com','1');
+INSERT INTO `member` VALUES (77,'test','0','測試','lp07128120@gmail.com','0'),(78,'t','0','測試2','lp07128120@gmail.com','0');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-11 12:24:09
+-- Dump completed on 2024-02-13 14:49:16

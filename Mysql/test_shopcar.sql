@@ -32,8 +32,8 @@ CREATE TABLE `shopcar` (
   KEY `por_idx` (`porderId`),
   KEY `mp_idx` (`memberId`),
   CONSTRAINT `mp` FOREIGN KEY (`memberId`) REFERENCES `member` (`memberId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `por` FOREIGN KEY (`porderId`) REFERENCES `porder` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `por` FOREIGN KEY (`porderId`) REFERENCES `porder` (`porderId`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `shopcar` (
 
 LOCK TABLES `shopcar` WRITE;
 /*!40000 ALTER TABLE `shopcar` DISABLE KEYS */;
-INSERT INTO `shopcar` VALUES (24,75,1,1,3000),(26,60,5,1,3000);
+INSERT INTO `shopcar` VALUES (34,77,1,1,3000);
 /*!40000 ALTER TABLE `shopcar` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-11 12:24:09
+-- Dump completed on 2024-02-13 14:49:16

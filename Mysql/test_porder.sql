@@ -23,13 +23,13 @@ DROP TABLE IF EXISTS `porder`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `porder` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `porderId` int NOT NULL AUTO_INCREMENT,
   `product` varchar(45) NOT NULL,
   `amount` int NOT NULL,
   `imgNo` varchar(45) NOT NULL,
   `mode` varchar(45) NOT NULL,
   `items` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`porderId`),
   UNIQUE KEY `imgNo_UNIQUE` (`imgNo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-11 12:24:09
+-- Dump completed on 2024-02-13 14:49:16

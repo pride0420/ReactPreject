@@ -2,6 +2,7 @@ package com.example.demo.vo.view;
 
 import java.sql.Timestamp;
 
+/***留言的資料庫view***/
 public class ChatView {
 
 	private Integer ChatId;

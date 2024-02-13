@@ -15,11 +15,11 @@ function Product() {
     const memberId = member.memberId;
 
     useEffect(() => {
-        test(items);
-        car();
+        queryItems(items);
+        querySum();
     }, [items]); // 当 URL 参数变化时重新加载数据
 
-    const test = (items) => {
+    const queryItems = (items) => {
         axios.get(`http://localhost:8080/porder/queryItems?items=${items}`)
             .then(response => {
                 setProductList(response.data);
@@ -30,7 +30,7 @@ function Product() {
                 // 处理错误情况
             });
     }
-    const car = () => {
+    const querySum = () => {
         axios.get(`http://localhost:8080/shop/querySum?memberId=${memberId}`)
             .then(response => {
                 if (response && response.data) {
@@ -44,7 +44,7 @@ function Product() {
     }
     const updateProductList = () => {
         // 更新 productList 数据
-        car();
+        querySum();
     }
     if (productList === null) {
         return <div>Loading...</div>;
@@ -68,10 +68,10 @@ function Product() {
                 </div>
             </div>
             <div className='butoon-shop'>
-                <button className="btn btn-default" onClick={() => { test("手機") }}>手機</button>
-                <button className="btn btn-default" onClick={() => { test("電腦") }}>電腦</button>
-                <button className="btn btn-default" onClick={() => { test("電動") }}>電動</button>
-                <button className="btn btn-default" onClick={() => { test("其他") }}>其他</button>
+                <button className="btn btn-default" onClick={() => { queryItems("手機") }}>手機</button>
+                <button className="btn btn-default" onClick={() => { queryItems("電腦") }}>電腦</button>
+                <button className="btn btn-default" onClick={() => { queryItems("電動") }}>電動</button>
+                <button className="btn btn-default" onClick={() => { queryItems("其他") }}>其他</button>
             </div>
             <Footer />
         </>

@@ -21,6 +21,8 @@ import com.example.demo.service.Impl.ShopServiceImpl;
 import com.example.demo.vo.Member;
 
 import jakarta.servlet.http.HttpSession;
+
+/***綠界ecpay的controller***/
 @CrossOrigin
 @RestController
 @RequestMapping("/shop")
@@ -30,22 +32,13 @@ public class EcpayController {
 	EcpayService ecpayService;
 	
 	@Autowired
-	HttpSession session;
-	@Autowired
 	public ShopServiceImpl si;
 	@PostMapping("/ecpayCheckout")
 	
-	public String ecpayCheckout() {
-		Member m=(Member) session.getAttribute("M");
-		int x=si.querySum(m.getMemberId());
+	public String ecpayCheckout(Integer memberId) {
+		int x=si.querySum(memberId);
 		String aioCheckOutALLForm = ecpayService.ecpayCheckout(x);
         return aioCheckOutALLForm; // form表單
 	} 
-
-	@GetMapping("goecpay")
-	public ModelAndView goEcpay() {
-		ModelAndView mav=new ModelAndView("/js/shop/Ecpay.html");
-		return mav;
-	}
 }
 

@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.demo.vo.Chat;
 import com.example.demo.vo.view.ChatView;
 
+/***貼文的service***/
 public interface ChatService {
 
 	void addChat(Chat c);

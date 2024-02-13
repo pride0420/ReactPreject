@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import com.example.demo.vo.Chat;
 import com.example.demo.vo.view.ChatView;
 
+/***貼文的Mapper***/
 @Mapper
 public interface ChatMapper {
 

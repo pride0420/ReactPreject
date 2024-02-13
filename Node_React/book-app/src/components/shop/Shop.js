@@ -12,14 +12,14 @@ export default function Shop() {
     const [shopList, setShopList] = useState(null);
     const [sum, setSum] = useState(0);
 
-    const test = () => {
+    const queryPorder = () => {
         axios.get("http://localhost:8080/porder/queryId")
             .then(response => {
                 setShopList(response.data);
             })
     }
 
-    const car = () => {
+    const querySum = () => {
         let url = `http://localhost:8080/shop/querySum?memberId=${memberId}`;
         axios.get(url)
             .then(response => {
@@ -35,8 +35,8 @@ export default function Shop() {
     }
 
     useEffect(() => {
-        test();
-        car();
+        queryPorder();
+        querySum();
     }, [memberId, shopList])
 
     return (

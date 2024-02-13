@@ -12,14 +12,14 @@ export default function Car() {
     const [carList, setCarList] = useState(null);
     const [sum, setSum] = useState(0);
     
-    const test = () => {
+    const queryCar = () => {
         axios.get(`http://localhost:8080/car/queryCar?memberId=${memberId}`)
             .then(response => {
                 setCarList(response.data);
                 console.log(response.data);
             })
     }
-    const car = () => {
+    const querySum = () => {
         axios.get(`http://localhost:8080/shop/querySum?memberId=${memberId}`)
             .then(response => {
                 setSum(response.data);
@@ -29,13 +29,13 @@ export default function Car() {
             });
     }
     const handleCar = () => {
-        test();
-        car();
+        queryCar();
+        querySum();
     }
 
     useEffect(() => {
-        test();
-        car();
+        queryCar();
+        querySum();
     }, [memberId])
 
     const btn = () => {
@@ -44,13 +44,20 @@ export default function Car() {
         } else {
             let Click = window.confirm("總金額:" + sum + "元，是否確定結帳");
             if (Click) {
-                axios.post('http://localhost:8080/shop/ecpayCheckout')
+                axios.post(`http://localhost:8080/shop/ecpayCheckout?memberId=${memberId}`)
                     .then(response => {
                         document.write(response.data);
                     })
             }
         }
     }
+
+    const checkSum=()=>{
+        if(sum==0){
+            alert("請先加入商品");
+        }
+    }
+
     return (
         <>
             <Navibar />
@@ -61,8 +68,12 @@ export default function Car() {
                     <span><Link to='/shop'><button className='btn btn-default'>繼續購物</button></Link></span>
                     <div className="right">
                         <span>購物車金額: $<span>{sum}</span>
-                            <button className='btn btn-default' id='btn1' onClick={btn}>結帳</button>
-                            <Link to="/pay"><button className='btn btn-default' id='btn1'>結帳(內部)</button></Link>
+                            <button className='btn btn-default' onClick={btn}>結帳(ecpay)</button>
+                            {
+                                sum==0?(<button className='btn btn-default' onClick={checkSum}>結帳(內部)</button>):
+                                (<Link to="/pay"><button className='btn btn-default'>結帳(內部)</button></Link>)
+                            }
+                            
                         </span>
                     </div>
                 </div>

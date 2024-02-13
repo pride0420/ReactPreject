@@ -14,6 +14,7 @@ import com.example.demo.vo.Shop;
 
 import jakarta.servlet.http.HttpSession;
 
+/***商城的實作***/
 @Service
 public class ShopServiceImpl implements ShopService {
 
@@ -26,12 +27,13 @@ public class ShopServiceImpl implements ShopService {
 	@Autowired
 	public HttpSession session;
 
+	/***該帳號在商城對購物車的新增***/
 	@Override
-	public void addShop(Integer id, Integer memberId) {
-		Shop s = sm.queryPorderId(id);
-		Porder p = pm.query(id);
+	public void addShop(Integer porderId, Integer memberId) {
+		Shop s = sm.queryPorderId(porderId,memberId);
+		Porder p = pm.query(porderId);
 		if (s == null) {
-			s = new Shop(memberId, p.getId(), 1, p.getAmount());
+			s = new Shop(memberId, porderId, 1, p.getAmount());
 			sm.addShop(s);
 		} else {
 			s.setNum(s.getNum() + 1);
@@ -40,6 +42,7 @@ public class ShopServiceImpl implements ShopService {
 		}
 	}
 
+	/***找出該帳號的購物車金額***/
 	@Override
 	public Integer querySum(Integer memberId) {
 		Integer s = sm.querySum(memberId);

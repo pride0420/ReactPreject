@@ -19,11 +19,7 @@ function Chat() {
         if (name === "content") setContent(value);
     }
 
-    const headlchat = () => {
-        test();
-    }
-
-    const test = () => {
+    const queryAll = () => {
 
         const url = `http://localhost:8080/chat/queryAll?memberId=${memberId}`;
         axios.get(url, {
@@ -31,6 +27,7 @@ function Chat() {
         })
             .then(response => {
                 setChatList(response.data);
+                //console.log(response.data);
             })
             .catch(error => {
                 console.error('Error fetching chat list:', error);
@@ -38,8 +35,8 @@ function Chat() {
     }
 
     useEffect(() => {
-        test();
-    }, [location, headlchat]);
+        queryAll();
+    }, [queryAll]);
 
     const addChat = (e) => {
         e.preventDefault();
@@ -52,14 +49,8 @@ function Chat() {
             headers: { 'Content-Type': 'application/json' }
         })
             .then(response => {
-                setContent("");
                 document.getElementsByName("content")[0].value = ""; // 设置 textarea 的值为空
                 alert("新增成功");
-
-                setTimeout(() => {
-
-                    console.log(content); // 此时打印的 content 应该是空字符串
-                }, 0);
 
             }).catch(error => {
                 console.error('Error adding chat:', error);
@@ -93,7 +84,7 @@ function Chat() {
                     </form>
                     <div>
                         {chatList && chatList.map((chatInfo) => (
-                            <ChatItems key={chatInfo.chatId} chatInfo={chatInfo} memberId={memberId} headlchat={headlchat} />
+                            <ChatItems key={chatInfo.chatId} chatInfo={chatInfo} memberId={memberId} queryAll={queryAll} />
                         ))}
                     </div>
                 </div>

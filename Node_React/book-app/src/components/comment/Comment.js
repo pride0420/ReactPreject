@@ -21,32 +21,6 @@ function Comment() {
             setComment(value);
         }
     }
-    const handlcommentList = () => {
-        queryList(); // 重新执行 queryList 函数
-    }
-    const addComment = (e) => {
-        e.preventDefault();
-        let data = {
-            memberId: memberId,
-            chatId: chatId,
-            comment: comment
-        }
-        axios.post("http://localhost:8080/comment/addComment", data, {
-            headers: { 'Content-Type': 'application/json' }
-        })
-            .then(response => {
-                alert("新增成功");
-            }).catch(error => {
-                console.error('Error adding chat:', error);
-                alert("新增失败");
-            });
-    }
-
-    useEffect(() => {
-        queryItem();
-        queryList();
-
-    }, [memberId, member, handlcommentList]);
 
     const queryItem = () => {
         const url = `http://localhost:8080/chat/queryChat?chatId=${chatId}`;
@@ -62,26 +36,41 @@ function Comment() {
 
         axios.get(url, { headers: { 'Content-Type': 'application/json' } })
             .then(response => {
-                console.log(response.data);
                 setCommentList(response.data);
             }).catch(error => {
                 console.error('Error fetching commentList :', error);
             })
     }
-    const handleSubmit = (e) => {
-        console.log('Event:', e); // 查看事件对象的内容
-        e.preventDefault();
-        addComment(e); // 调用 addComment 函数
-        queryItem(); // 重新执行 queryItem 函数
-        queryList(); // 重新执行 queryList 函数
-    }
 
+    useEffect(() => {
+        queryItem();
+        queryList();
+    }, [queryList]);
+
+    const addComment = (e) => {
+        e.preventDefault();
+        let data = {
+            memberId: memberId,
+            chatId: chatId,
+            comment: comment
+        }
+        axios.post("http://localhost:8080/comment/addComment", data, {
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(response => {
+                alert("新增成功");
+                document.getElementsByName("comment")[0].value = ""; // 设置 textarea 的值为空
+            }).catch(error => {
+                console.error('Error adding chat:', error);
+                alert("新增失败");
+            });
+    }
     return (
         <>
             <Navibar />
-            <img src="image/05.jpg" className="img-responsive" id="banner" alt="" />
+            <img src="/image/05.jpg" className="img-responsive" id="banner" alt="" />
             {commentItem && <CommentItem commentInfo={commentItem} />}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={addComment}>
                 <table align='' border={1} className='table'>
                     <tr>
                         <td>
@@ -97,7 +86,7 @@ function Comment() {
                     </tr>
                 </table>
             </form>
-            {commentList && commentList.map((commentInfo) => (<CommentList key={commentInfo.commentId} commentInfo={commentInfo} memberId={memberId} handlcommentList={handlcommentList} />))}
+            {commentList && commentList.map((commentInfo) => (<CommentList key={commentInfo.commentId} commentInfo={commentInfo} memberId={memberId} queryList={queryList} />))}
             <Footer />
         </>
     )

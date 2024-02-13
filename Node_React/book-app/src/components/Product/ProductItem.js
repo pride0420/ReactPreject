@@ -6,11 +6,11 @@ export default function ProductItem(props) {
   const { member } = useContext(MemberContext);
   const memberId = member.memberId;
   const { productInfo, updateProductList } = props;
-  const { id, product, mode, amount } = productInfo;
+  const { porderId, product, mode, amount } = productInfo;
 
-  const test = () => {
+  const addShop = () => {
 
-    const x = axios.post(`http://localhost:8080/shop/addShop?id=${id}&memberId=${memberId}`);
+    const x = axios.post(`http://localhost:8080/shop/addShop?porderId=${porderId}&memberId=${memberId}`);
     x.then(response => {
       alert("新增成功");
       // 触发父组件的更新函数
@@ -31,11 +31,11 @@ export default function ProductItem(props) {
   return (
     <div className="list-item">
       <div className="item-content">
-        <img src={`/images/${id}.jpg`} className="item-image" />
+        <img src={`/images/${porderId}.jpg`} className="item-image" />
         <h3>{product}</h3>
         <p>{mode}</p>
         <p>價格:{amount}</p>
-        <button className="btn btn-default" onClick={test}>加入購物車</button>
+        <button className="btn btn-default" onClick={addShop}>加入購物車</button>
       </div>
     </div>
   )

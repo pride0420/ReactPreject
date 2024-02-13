@@ -2,6 +2,7 @@ import { MemberContext } from '../MemberContext'
 import React, { useContext, useState, useEffect } from 'react'
 import axios from 'axios';
 import UserChatItem from './UserChatItem';
+import { Link } from 'react-router-dom';
 export default function UserChat() {
 
     const { member } = useContext(MemberContext);
@@ -36,7 +37,7 @@ export default function UserChat() {
                 <div>{userChatList.map((userChatListInfo) => (
                     <UserChatItem key={userChatListInfo.userId} userChatListInfo={userChatListInfo} queryUserChat={queryUserChat} />
                 ))}</div>
-            ) : "尚未發文"}
+            ) :<div className='div-container'><h3>尚未發文</h3><br/><Link to="/chat"><button>前往發文</button></Link></div>}
         </div>
     )
 }

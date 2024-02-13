@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.example.demo.vo.Member;
 
+/***帳戶的Mapper***/
 @Mapper
 public interface MemberMapper {
 

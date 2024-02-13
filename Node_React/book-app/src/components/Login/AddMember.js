@@ -78,7 +78,7 @@ export default class AddMember extends Component {
                     if (response.data) {
                         alert("新增成功");
                     } else {
-                        alert("註冊失敗");
+                        alert("帳號重複");
                     }
                 }).catch(error => {
                     console.error("發生錯誤:", error);

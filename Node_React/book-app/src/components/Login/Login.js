@@ -25,7 +25,7 @@ function Login() {
         }
     }, [Member, navigate]);
 
-    const test = async (e) => {
+    const login = async (e) => {
         e.preventDefault();
         let data = {
             username: username,
@@ -41,10 +41,10 @@ function Login() {
             if (response.data != null && response.data != '') {
                 updateMember(response.data);
                 setMember(response.data);
-            } else {
+            } else{
                 setUsername(""); // 清空用户名
                 setPassword(""); // 清空密码
-                alert("登入失敗");
+                alert("帳號或密碼錯誤");
             }
         } catch (error) {
             if (error.response) {
@@ -61,7 +61,7 @@ function Login() {
         <>
             <div className="background-div">
                 <div className="word text-center">
-                    <form name='user' onSubmit={test}>
+                    <form name='user' onSubmit={login}>
                         <table align='center' border={1}>
                             <tr>
                                 <td>帳號:</td>

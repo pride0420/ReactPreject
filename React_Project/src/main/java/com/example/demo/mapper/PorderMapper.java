@@ -7,16 +7,17 @@ import org.apache.ibatis.annotations.Select;
 
 import com.example.demo.vo.Porder;
 
+/***商品的Mapper***/
 @Mapper
 public interface PorderMapper {
 
-	@Select("select * from porder where id=1 or id=4 or id=7 or id=10")
+	@Select("select * from porder where porderId=1 or porderId=4 or porderId=7 or porderId=10")
 	List<Porder> queryId();
 
 	@Select("select * from porder where items=#{items}")
 	List<Porder> queryItems(String items);
 
-	@Select("select * from portfolio.porder where id=#{id}")
-	Porder query(Integer id);
+	@Select("select * from porder where porderId=#{porderId}")
+	Porder query(Integer porderId);
 
 }

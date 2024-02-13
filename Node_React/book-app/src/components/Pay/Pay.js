@@ -39,11 +39,14 @@ export default function Pay() {
             alert("信箱錯誤");
             return;
         } else {
+            let Click = window.confirm("總金額:" + sum + "元，是否確定結帳");
+            if (Click) {
             axios.post(`http://localhost:8080/car/checkCar?memberId=${memberId}&email=${email}`)
                 .then(response => {
                     alert("購買成功");
                     navigate("/shop");
                 })
+                }
         }
     }
 

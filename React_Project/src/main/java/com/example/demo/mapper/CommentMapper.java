@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 
 import com.example.demo.vo.Comment;
 
+/***留言的Mapper***/
 @Mapper
 public interface CommentMapper {
 

@@ -8,11 +8,11 @@ export default class ShopItems extends Component {
   }
   render() {
     const { shopInfo } = this.props;
-    const { id, product, mode, items } = shopInfo;
+    const { porderId, product, mode, items } = shopInfo;
     return (
       <div className="list-item">
         <div className="item-content">
-          <img src={`images/${id}.jpg`} className="item-image" alt="" />
+          <img src={`images/${porderId}.jpg`} className="item-image" alt="" />
           <h3>{product}</h3>
           <p>{mode}</p>
           <Link to={`/products/${items}`} className="btn btn-default">查看更多</Link>

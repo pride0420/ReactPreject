@@ -1,33 +1,19 @@
 package com.example.demo.vo;
 
-/***商城的vo***/
-public class Shop {
+/***購物車的vo***/
+public class Cart {
 
 	private Integer id;
-	private Integer memberId;
 	private Integer porderId;
+	private String product;
+	private String mode;
+	private Integer amount;
 	private Integer num;
 	private Integer sum;
 
-	public Shop(Integer memberId, Integer porderId, Integer num, Integer sum) {
-		super();
-		this.memberId = memberId;
-		this.porderId = porderId;
-		this.num = num;
-		this.sum = sum;
-	}
-
-	public Shop() {
+	public Cart() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public Integer getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(Integer memberId) {
-		this.memberId = memberId;
 	}
 
 	public Integer getId() {
@@ -44,6 +30,30 @@ public class Shop {
 
 	public void setPorderId(Integer porderId) {
 		this.porderId = porderId;
+	}
+
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
+	}
+
+	public String getMode() {
+		return mode;
+	}
+
+	public void setMode(String mode) {
+		this.mode = mode;
+	}
+
+	public Integer getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
 	}
 
 	public Integer getNum() {

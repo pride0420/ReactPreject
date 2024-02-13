@@ -1,8 +1,9 @@
 package com.example.demo.vo;
 
+/***商品的vo***/
 public class Porder {
 
-	private Integer id;
+	private Integer porderId;
 	private String product;
 	private String porderNo;
 	private Integer amount;
@@ -25,12 +26,13 @@ public class Porder {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getId() {
-		return id;
+
+	public Integer getPorderId() {
+		return porderId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setPorderId(Integer porderId) {
+		this.porderId = porderId;
 	}
 
 	public String getProduct() {

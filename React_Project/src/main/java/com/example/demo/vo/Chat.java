@@ -2,6 +2,7 @@ package com.example.demo.vo;
 
 import java.sql.Timestamp;
 
+/***貼文的vo***/
 public class Chat {
 	private Integer id;// 借goodchat
 	private Integer chatId;

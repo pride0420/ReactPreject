@@ -7,7 +7,7 @@ export default class CommentList extends Component {
         super(props);
     }
     render() {
-        const { commentInfo, memberId, handlcommentList } = this.props;
+        const { commentInfo, memberId, queryList } = this.props;
         const { name, firsttime, comment, commentId, chatId, item } = commentInfo;
 
         // 将时间戳转换为 Date 对象
@@ -46,7 +46,7 @@ export default class CommentList extends Component {
                     </tr>
                     <tr>
                         <td colSpan={2} >
-                            <button className='left' onClick={() => { goodcomment(memberId, chatId, commentId); handlcommentList(); }}>{item ? "已收藏" : "收藏"}</button>
+                            <button className='left' onClick={() => { goodcomment(memberId, chatId, commentId); queryList(); }}>{item ? "已按讚" : "讚"}</button>
                         </td>
                     </tr>
                 </table>

@@ -10,7 +10,9 @@ import com.example.demo.mapper.GoodsCommentMapper;
 import com.example.demo.service.CommentService;
 import com.example.demo.vo.Comment;
 
-/***留言的實作***/
+/**
+ * 留言的實作
+ */
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -20,20 +22,29 @@ public class CommentServiceImpl implements CommentService {
 	@Autowired
 	private GoodsCommentMapper gcmp;
 
-	/***新增留言***/
+	/**
+	 * 新增留言
+	 */
 	@Override
 	public void addComment(Comment c) {
 		cm.addComment(c);
 	}
 
-	/***找出貼文底下的留言***/
+	/**
+	 * 找出貼文底下的留言
+	 */
 	@Override
 	public List<Comment> queryAllComment(Integer chatId, Integer memberId) {
 		List<Comment> l = queryGood(chatId, memberId);
 		return l;
 	}
 	
-	/***找出貼文底下有按讚的留言 queryAllComment使用***/
+	/**
+	 * 找出貼文底下有按讚的留言 queryAllComment使用
+	 * @param chatId
+	 * @param memberId
+	 * @return
+	 */
 	private List<Comment> queryGood(Integer chatId, Integer memberId) {
 		List<Comment> l = cm.queryAllComment(chatId);
 		List<Comment> g = gcmp.queryGoodComment(memberId, chatId);
@@ -49,7 +60,6 @@ public class CommentServiceImpl implements CommentService {
 			}
 		}
 		return l;
-
 	}
 
 }

@@ -1,20 +1,31 @@
 package com.example.demo.vo;
 
-/***商品的vo***/
+/**
+ * 商品的vo
+ */
 public class Porder {
 
+	/**鍵值*/
 	private Integer porderId;
+	
+	/**商品名稱*/
 	private String product;
-	private String porderNo;
+	
+	/**定價*/
 	private Integer amount;
+	
+	/**圖片名*/
 	private String imgNo;
+	
+	/**介紹*/
 	private String mode;
+	
+	/**類別*/
 	private String items;
 
-	public Porder(String product, String porderNo, Integer amount, String imgNo, String mode, String items) {
+	public Porder(String product, Integer amount, String imgNo, String mode, String items) {
 		super();
 		this.product = product;
-		this.porderNo = porderNo;
 		this.amount = amount;
 		this.imgNo = imgNo;
 		this.mode = mode;
@@ -41,14 +52,6 @@ public class Porder {
 
 	public void setProduct(String product) {
 		this.product = product;
-	}
-
-	public String getPorderNo() {
-		return porderNo;
-	}
-
-	public void setPorderNo(String porderNo) {
-		this.porderNo = porderNo;
 	}
 
 	public Integer getAmount() {

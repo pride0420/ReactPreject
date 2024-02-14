@@ -32,39 +32,6 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `likechat`
---
-
-DROP TABLE IF EXISTS `likechat`;
-/*!50001 DROP VIEW IF EXISTS `likechat`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `likechat` AS SELECT 
- 1 AS `chatId`,
- 1 AS `memberId`,
- 1 AS `name`,
- 1 AS `content`,
- 1 AS `firsttime`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `commentview`
---
-
-DROP TABLE IF EXISTS `commentview`;
-/*!50001 DROP VIEW IF EXISTS `commentview`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `commentview` AS SELECT 
- 1 AS `commentId`,
- 1 AS `memberId`,
- 1 AS `name`,
- 1 AS `chatId`,
- 1 AS `comment`,
- 1 AS `firsttime`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Temporary view structure for view `car`
 --
 
@@ -86,6 +53,23 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `commentview`
+--
+
+DROP TABLE IF EXISTS `commentview`;
+/*!50001 DROP VIEW IF EXISTS `commentview`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `commentview` AS SELECT 
+ 1 AS `commentId`,
+ 1 AS `memberId`,
+ 1 AS `name`,
+ 1 AS `chatId`,
+ 1 AS `comment`,
+ 1 AS `firsttime`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Final view structure for view `chatview`
 --
 
@@ -99,42 +83,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `chatview` AS select `chat`.`chatId` AS `chatId`,`chat`.`memberId` AS `memberId`,`member`.`name` AS `name`,`chat`.`content` AS `content`,`chat`.`firsttime` AS `firsttime` from (`member` join `chat`) where (`member`.`memberId` = `chat`.`memberId`) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `likechat`
---
-
-/*!50001 DROP VIEW IF EXISTS `likechat`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `likechat` AS select `chatview`.`chatId` AS `chatId`,`goodchat`.`memberId` AS `memberId`,`chatview`.`name` AS `name`,`chatview`.`content` AS `content`,`chatview`.`firsttime` AS `firsttime` from (`chatview` join `goodchat`) where (`chatview`.`chatId` = `goodchat`.`chatId`) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `commentview`
---
-
-/*!50001 DROP VIEW IF EXISTS `commentview`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `commentview` AS select `comment`.`commentId` AS `commentId`,`member`.`memberId` AS `memberId`,`member`.`name` AS `name`,`comment`.`chatId` AS `chatId`,`comment`.`comment` AS `comment`,`comment`.`firsttime` AS `firsttime` from (`comment` join `member`) where (`member`.`memberId` = `comment`.`memberId`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -156,6 +104,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `commentview`
+--
+
+/*!50001 DROP VIEW IF EXISTS `commentview`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `commentview` AS select `comment`.`commentId` AS `commentId`,`member`.`memberId` AS `memberId`,`member`.`name` AS `name`,`comment`.`chatId` AS `chatId`,`comment`.`comment` AS `comment`,`comment`.`firsttime` AS `firsttime` from (`comment` join `member`) where (`member`.`memberId` = `comment`.`memberId`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -166,4 +132,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-13 14:49:17
+-- Dump completed on 2024-02-14 16:28:27

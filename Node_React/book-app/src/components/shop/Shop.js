@@ -25,7 +25,6 @@ export default function Shop() {
             .then(response => {
                 if (response && response.data) {
                     setSum(response.data);
-                    console.log(response.data);
                 } else {
                     console.error('Response data is undefined:', response);
                 }
@@ -37,7 +36,7 @@ export default function Shop() {
     useEffect(() => {
         queryPorder();
         querySum();
-    }, [memberId, shopList])
+    }, [])
 
     return (
         <>

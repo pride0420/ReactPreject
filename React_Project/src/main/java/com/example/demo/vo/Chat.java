@@ -2,12 +2,24 @@ package com.example.demo.vo;
 
 import java.sql.Timestamp;
 
-/***貼文的vo***/
+/**
+ * 貼文的vo
+ */
 public class Chat {
+	
+	/**資料庫goodchat的id*/
 	private Integer id;// 借goodchat
+	
+	/**鍵值*/
 	private Integer chatId;
+	
+	/**member的id*/
 	private Integer memberId;
+	
+	/**貼文內容*/
 	private String content;
+	
+	/**貼文時間*/
 	private Timestamp firsttime;
 
 	public Chat() {

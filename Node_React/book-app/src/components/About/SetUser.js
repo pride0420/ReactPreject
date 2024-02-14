@@ -4,19 +4,16 @@ import './about.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 export default function SetUser() {
-    const { member, updateMember } = useContext(MemberContext);
+    const { member, updateMember ,restMember} = useContext(MemberContext);
+    const memberId = member.memberId;
     const username = member.username;
     const [name, setName] = useState(member.name);
     const [password, setPassword] = useState(member.password);
     const [phone, setPhone] = useState(member.phone);
     const [email, setEmail] = useState(member.email);
-    const memberId = member.memberId;
-    const { restMember } = useContext(MemberContext);
-    const navigate = useNavigate();
     const [isEmailValid, setIsEmailValid] = useState(true);
-    const checkEmail = (value) => {
-        setIsEmailValid(/^\w+@\w+\.\w+$/.test(value) || value === "");
-    }
+    const [emailError, setEmailError] = useState('');
+    const navigate = useNavigate();
 
     const changeUser = (e) => {
         const { name, value } = e.target;
@@ -31,16 +28,13 @@ export default function SetUser() {
         }
         if (name === 'email') {
             setEmail(value);
-            checkEmail(value);
+            setIsEmailValid(/^\w+@\w+\.\w+$/.test(value));
+            setEmailError(/^\w+@\w+\.\w+$/.test(value) ? '' : '信箱格式不正確');
         }
     }
 
     const checkSubmit = (e) => {
         e.preventDefault();
-        if (!isEmailValid) {
-            alert("信箱錯誤");
-            return;
-        } else {
             let data = {
                 username: username,
                 name: name,
@@ -60,7 +54,6 @@ export default function SetUser() {
                     console.error("修改失败:", error);
                 });
         }
-    }
 
     const handleReset = () => {
         // 将输入框的值恢复为 member 原来的值
@@ -76,7 +69,6 @@ export default function SetUser() {
         if (Click) {
             axios.post(`http://localhost:8080/member/deleteMember?memberId=${memberId}`)
                 .then(response => {
-                    console.log("delete");
                     restMember();
                     navigate("/");
                 })
@@ -97,11 +89,13 @@ export default function SetUser() {
                     </tr>
                     <tr>
                         <td>電話</td>
-                        <td><input type='text' name='phone' value={phone} placeholder={member.phone} onChange={changeUser} required /></td>
+                        <td><input type='text' name='phone' pattern="\d*" value={phone} placeholder={member.phone} onChange={changeUser} required /></td>
                     </tr>
                     <tr>
                         <td>信箱</td>
-                        <td><input type='text' name='email' value={email} placeholder={member.email} onChange={changeUser} required /></td>
+                        <td><input type='text' name='email' value={email} placeholder={member.email} onChange={changeUser} required /><br />
+                            {emailError && <span className='error' style={{ color: 'red' }}>{emailError}</span>}
+                        </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>

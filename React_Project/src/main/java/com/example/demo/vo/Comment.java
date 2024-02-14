@@ -2,16 +2,30 @@ package com.example.demo.vo;
 
 import java.sql.Timestamp;
 
-/***留言的vo***/
+/**
+ * 留言的vo
+ */
 public class Comment {
 
+	/**鍵值*/
 	private Integer commentId;
+	
+	/**member的id*/
 	private Integer memberId;
+	
+	/**chat的id*/
 	private Integer chatId;
+	
+	/**留言內容*/
 	private String comment;
+	
+	/**留言時間*/
 	private Timestamp firsttime;
 
+	/**commentView的name*/
 	private String name;
+	
+	/**更新按讚狀態*/
 	private boolean item;
 
 	public Comment(Integer memberId, Integer chatId, String comment) {

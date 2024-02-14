@@ -23,7 +23,6 @@ function Product() {
         axios.get(`http://localhost:8080/porder/queryItems?items=${items}`)
             .then(response => {
                 setProductList(response.data);
-                console.log(response.data);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -42,13 +41,12 @@ function Product() {
                 console.error('Error fetching sum:', error);
             });
     }
+    
     const updateProductList = () => {
         // 更新 productList 数据
         querySum();
     }
-    if (productList === null) {
-        return <div>Loading...</div>;
-    }
+    
     return (
         <>
             <Navibar />
@@ -64,7 +62,7 @@ function Product() {
                     </div>
                 </div>
                 <div className="list-container">
-                    {productList.map((productInfo) => <ProductItem key={productInfo.productId} productInfo={productInfo} updateProductList={updateProductList} />)}
+                    {productList && productList.map((productInfo) => <ProductItem key={productInfo.productId} productInfo={productInfo} updateProductList={updateProductList} />)}
                 </div>
             </div>
             <div className='butoon-shop'>

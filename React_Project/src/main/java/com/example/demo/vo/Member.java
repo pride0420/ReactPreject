@@ -1,13 +1,26 @@
 package com.example.demo.vo;
 
-/***帳戶的vo***/
+/**
+ * 帳戶的vo
+ */
 public class Member {
 
+	/**鍵值*/
 	private Integer memberId;
+	
+	/**帳號*/
 	private String username;
+	
+	/**密碼*/
 	private String password;
+	
+	/**暱稱*/
 	private String name;
+	
+	/**信箱*/
 	private String email;
+	
+	/**電話*/
 	private String phone;
 
 	public Member() {

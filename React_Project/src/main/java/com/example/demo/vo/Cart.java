@@ -1,14 +1,29 @@
 package com.example.demo.vo;
 
-/***購物車的vo***/
+/**
+ * 購物車的vo
+ */
 public class Cart {
-
+	
+	/**購物車的id*/
 	private Integer id;
+	
+	/**商品的id*/
 	private Integer porderId;
+	
+	/**商品名稱*/
 	private String product;
+	
+	/**商品介紹*/
 	private String mode;
+	
+	/**商品價格*/
 	private Integer amount;
+	
+	/**商品數量*/
 	private Integer num;
+	
+	/**總金額*/
 	private Integer sum;
 
 	public Cart() {

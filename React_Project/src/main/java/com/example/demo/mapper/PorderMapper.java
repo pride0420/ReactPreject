@@ -7,16 +7,32 @@ import org.apache.ibatis.annotations.Select;
 
 import com.example.demo.vo.Porder;
 
-/***商品的Mapper***/
+/**
+ * 商品的Mapper
+ */
 @Mapper
 public interface PorderMapper {
 
+	/**
+	 * 查詢特定條件的商品
+	 * @return
+	 */
 	@Select("select * from porder where porderId=1 or porderId=4 or porderId=7 or porderId=10")
 	List<Porder> queryId();
 
+	/**
+	 * 用類別查詢商品
+	 * @param items
+	 * @return
+	 */
 	@Select("select * from porder where items=#{items}")
 	List<Porder> queryItems(String items);
 
+	/**
+	 * 查詢單個商品
+	 * @param porderId
+	 * @return
+	 */
 	@Select("select * from porder where porderId=#{porderId}")
 	Porder query(Integer porderId);
 

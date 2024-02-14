@@ -2,15 +2,29 @@ package com.example.demo.vo.view;
 
 import java.sql.Timestamp;
 
-/***留言的資料庫view***/
+/**
+ * 留言的資料庫view
+ */
 public class ChatView {
-
+	/**chat的id*/
 	private Integer ChatId;
+	
+	/**member的id*/
 	private Integer memberId;
+	
+	/**member的name*/
 	private String name;
+	
+	/**chat的貼文內容*/
 	private String content;
+	
+	/**chat的貼文發佈時間*/
 	private Timestamp firsttime;
+	
+	/**用於更新chat按讚狀態*/
 	private boolean item;
+	
+	/**用於跟新chat底下comment的數量*/
 	private Integer chatSum;
 
 	public ChatView() {

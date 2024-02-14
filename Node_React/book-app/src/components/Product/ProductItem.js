@@ -5,7 +5,7 @@ export default function ProductItem(props) {
 
   const { member } = useContext(MemberContext);
   const memberId = member.memberId;
-  const { productInfo, updateProductList } = props;
+  const { productInfo,updateProductList } = props;
   const { porderId, product, mode, amount } = productInfo;
 
   const addShop = () => {

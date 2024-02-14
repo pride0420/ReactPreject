@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.example.demo.vo.Cart;
 
-/***購物車的service***/
+/**
+ * 購物車的service
+ */
 public interface CartService {
 
 	List<Cart> queryAll(Integer memberId);

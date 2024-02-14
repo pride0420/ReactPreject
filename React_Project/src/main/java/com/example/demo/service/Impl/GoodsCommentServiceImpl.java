@@ -8,14 +8,18 @@ import com.example.demo.mapper.GoodsCommentMapper;
 import com.example.demo.service.GoodsCommentService;
 import com.example.demo.vo.Comment;
 
-/***留言的實作***/
+/**
+ * 留言的實作
+ */
 @Service
 public class GoodsCommentServiceImpl implements GoodsCommentService {
 
 	@Autowired
 	private GoodsCommentMapper gcmp;
 
-	/***留言按讚或取消***/
+	/**
+	 * 留言按讚或取消
+	 */
 	@Override
 	public String addGoodComment(Comment c) {
 

@@ -12,7 +12,9 @@ import com.example.demo.vo.Member;
 
 import jakarta.servlet.http.HttpSession;
 
-/***商城的controller***/
+/**
+ * 商城的controller
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("/shop")
@@ -21,13 +23,21 @@ public class ShopController {
 	@Autowired
 	public ShopServiceImpl ssi;
 
-	/***在商城新增商品***/
+	/**
+	 * 在商城新增商品
+	 * @param porderId
+	 * @param memberId
+	 */
 	@PostMapping("addShop")
 	public void addShop(Integer porderId, Integer memberId) {
 		ssi.addShop(porderId, memberId);
 	}
 
-	/***查詢總金額***/
+	/**
+	 * 查詢總金額
+	 * @param memberId
+	 * @return
+	 */
 	@GetMapping("querySum")
 	public Integer querySum(Integer memberId) {
 

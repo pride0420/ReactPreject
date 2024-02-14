@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.example.demo.vo.Comment;
 
-/***留言的service***/
+/**
+ * 留言的service
+ */
 public interface CommentService {
 
 	void addComment(Comment c);

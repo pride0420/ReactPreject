@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.Impl.GoodsChatServiceImpl;
 import com.example.demo.vo.Chat;
 
-/***貼文按讚的controller***/
+/**
+ * 貼文按讚的controller
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("/goodchat")
@@ -18,12 +20,15 @@ public class GoodsChatController {
 
 	@Autowired
 	public GoodsChatServiceImpl gchsi;
-
-	/***按讚或取消***/
+	
+	/**
+	 * 按讚或取消
+	 * @param c
+	 * @return
+	 */
 	@PostMapping("addGoodChat")
 	public String addGoodChat(@RequestBody Chat c) {
 		return gchsi.addGoodChat(c);
-
 	}
 
 }

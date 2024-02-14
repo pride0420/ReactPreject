@@ -21,7 +21,6 @@ export default function UserChatItem(props) {
         axios.post(url)
             .then(response => {
                 alert(response.data);
-                props.queryUserChat();
             })
     }
     return (

@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.example.demo.vo.Porder;
 
-/***商品的service***/
+/**
+ * 商品的service
+ */
 public interface PorderService {
 
 	List<Porder> queryId();

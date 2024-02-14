@@ -6,20 +6,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 export default function Pay() {
     const { member } = useContext(MemberContext);
+    const memberId = member.memberId;
     const [email, setEmail] = useState(member.email);
     const [isEmailValid, setIsEmailValid] = useState(true);
     const [sum, setSum] = useState(0);
-    const memberId = member.memberId;
+    const [emailError, setEmailError] = useState('');
     const navigate = useNavigate();
 
-    const checkEmail = (value) => {
-        setIsEmailValid(/^\w+@\w+\.\w+$/.test(value) || value === "");
-    }
     const changeEmail = (e) => {
         const { name, value } = e.target;
         if (name === 'email') {
             setEmail(value);
-            checkEmail(value);
+            setIsEmailValid(/^\w+@\w+\.\w+$/.test(value));
+            setEmailError(/^\w+@\w+\.\w+$/.test(value) ? '' : '信箱格式不正確');
         }
     }
 
@@ -41,7 +40,7 @@ export default function Pay() {
         } else {
             let Click = window.confirm("總金額:" + sum + "元，是否確定結帳");
             if (Click) {
-            axios.post(`http://localhost:8080/car/checkCar?memberId=${memberId}&email=${email}`)
+            axios.post(`http://localhost:8080/car/checkCar?memberId=${memberId}&email=${email}&sum=${sum}`)
                 .then(response => {
                     alert("購買成功");
                     navigate("/shop");
@@ -52,11 +51,13 @@ export default function Pay() {
 
     const resetEmail = () => {
         setEmail(member.email);
+        setIsEmailValid(true);
+        setEmailError(true);
     }
 
     useEffect(() => {
         querySum();
-    })
+    },[])
     return (
         <>
             <Navibar />
@@ -88,19 +89,19 @@ export default function Pay() {
                 <table width="610" border="1" align="center">
                     <tr align="center">
                         <td>信用卡號:</td>
-                        <td align="left"><input type="text" maxlength="4" minlength="4" required size="4" /> -
-                            <input type="text" maxlength="4" minlength="4" required size="4" /> -
-                            <input type="text" maxlength="4" minlength="4" required size="4" /> -
-                            <input type="text" maxlength="4" minlength="4" required size="4" /></td>
+                        <td align="left"><input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" /> -
+                            <input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" /> -
+                            <input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" /> -
+                            <input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" /></td>
                     </tr>
                     <tr align="center">
                         <td>有效年月:</td>
-                        <td align="left"><input type="text" placeholder="MM" maxlength="2" minlength="2" size="3" required />&nbsp;
-                            <input type="text" placeholder="YY" maxlength="2" minlength="2" size="3" required /></td>
+                        <td align="left"><input type="text" placeholder="MM" maxlength="2" minlength="2" size="3" pattern="\d*" required />&nbsp;
+                            <input type="text" placeholder="YY" maxlength="2" minlength="2" size="3" pattern="\d*" required /></td>
                     </tr>
                     <tr align="center">
                         <td>安全碼:</td>
-                        <td align="left"><input type="text" maxlength="3" minlength="3" size="3" required /></td>
+                        <td align="left"><input type="text" maxlength="3" minlength="3" size="3" pattern="\d*" required /></td>
                     </tr>
                     <tr align="center">
                         <td>持卡人姓名:</td>
@@ -112,11 +113,13 @@ export default function Pay() {
                     </tr>
                     <tr align="center">
                         <td>信箱:</td>
-                        <td align="left"><input type="text" name="email" value={email} placeholder={member.email} onChange={changeEmail} required /></td>
+                        <td align="left"><input type="text" name="email" value={email} placeholder={member.email} onChange={changeEmail} required /><br />
+                            {emailError && <span className='error' style={{ color: 'red' }}>{emailError}</span>}
+                        </td>
                     </tr>
                     <tr align="center">
                         <td colspan="2">
-                            <input type="submit" value="立即付款" />
+                            <input type="submit" value="立即付款" disabled={!isEmailValid} />
                             <input type='reset' value="重設" onClick={resetEmail} />
                         </td>
                     </tr>

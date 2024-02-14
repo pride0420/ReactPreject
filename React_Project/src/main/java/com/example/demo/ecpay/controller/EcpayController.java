@@ -22,7 +22,9 @@ import com.example.demo.vo.Member;
 
 import jakarta.servlet.http.HttpSession;
 
-/***綠界ecpay的controller***/
+/**
+ * 綠界ecpay的controller
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("/shop")
@@ -38,7 +40,7 @@ public class EcpayController {
 	public String ecpayCheckout(Integer memberId) {
 		int x=si.querySum(memberId);
 		String aioCheckOutALLForm = ecpayService.ecpayCheckout(x);
-        return aioCheckOutALLForm; // form表單
+        return aioCheckOutALLForm;
 	} 
 }
 

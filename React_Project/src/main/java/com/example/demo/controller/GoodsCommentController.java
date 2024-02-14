@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.Impl.GoodsCommentServiceImpl;
 import com.example.demo.vo.Comment;
 
-/***留言按讚的controller***/
+/**
+ * 留言按讚的controller
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("goodComment")
@@ -19,7 +21,11 @@ public class GoodsCommentController {
 	@Autowired
 	public GoodsCommentServiceImpl gi;
 
-	/***留言按讚或取消***/
+	/**
+	 * 留言按讚或取消
+	 * @param c
+	 * @return
+	 */
 	@PostMapping("addGoodComment")
 	public String addGoodComment(@RequestBody Comment c) {
 		return gi.addGoodComment(c);

@@ -17,7 +17,9 @@ import com.example.demo.service.Impl.GoodsChatServiceImpl;
 import com.example.demo.vo.Chat;
 import com.example.demo.vo.view.ChatView;
 
-/***貼文的controller***/
+/**
+ * 貼文的controller
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("/chat")
@@ -29,39 +31,61 @@ public class ChatController {
 	@Autowired
 	public GoodsChatServiceImpl gchsi;
 
-	/***新增貼文***/
+	/**
+	 * 新增貼文
+	 * @param c
+	 */
 	@PostMapping("/addChat")
 	public void addChat(@RequestBody Chat c) {
 		csi.addChat(c);
 	}
 	
-	/***查詢全部貼文***/
+	/**
+	 * 查詢全部貼文
+	 * @param memberId
+	 * @return
+	 */
 	@GetMapping("/queryAll")
 	public List<ChatView> queryAllChat(Integer memberId) {
 		return csi.queryAllChat(memberId);
 	}
 	
-	/***用id查詢該則貼文***/
+	/**
+	 * 用id查詢該則貼文
+	 * @param chatId
+	 * @return
+	 */
 	@GetMapping("/queryChat")
 	public ChatView queryChat(Integer chatId) {
 		return csi.queryChat(chatId);
 	}
 
-	/***找出帳號發的貼文***/
+	/**
+	 * 找出帳號發的貼文
+	 * @param memberId
+	 * @return
+	 */
 	@GetMapping("queryUserChat")
 	public List<ChatView> queryUserChat(Integer memberId) {
 
 		return csi.queryUserChat(memberId);
 	}
 
-	/***刪除貼文***/
+	/**
+	 * 刪除貼文
+	 * @param chatId
+	 * @return
+	 */
 	@PostMapping("deleteChat")
 	public String deleteChat(Integer chatId) {
 		csi.deleteChat(chatId);
 		return "刪除成功";
 	}
 	
-	/***更新貼文內容***/
+	/**
+	 * 更新貼文內容
+	 * @param c
+	 */
 	@PostMapping("updateChat")
 	public void updateChat(@RequestBody Chat c) {
 		csi.updateChat(c);

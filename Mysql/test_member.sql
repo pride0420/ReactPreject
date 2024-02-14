@@ -31,7 +31,7 @@ CREATE TABLE `member` (
   `phone` varchar(45) NOT NULL,
   PRIMARY KEY (`memberId`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT INTO `member` VALUES (77,'test','0','測試','lp07128120@gmail.com','0'),(78,'t','0','測試2','lp07128120@gmail.com','0');
+INSERT INTO `member` VALUES (77,'test','0','測試','lp07128120@gmail.com','0'),(78,'t','0','測試2','lp07128120@gmail.com','0'),(84,'r','0','胡','w@d.d','0'),(85,'mark','0','甜不辣雞翅','lp07128120@gmail.com','0');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-13 14:49:16
+-- Dump completed on 2024-02-14 16:28:27

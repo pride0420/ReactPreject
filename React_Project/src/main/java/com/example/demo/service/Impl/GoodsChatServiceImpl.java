@@ -9,14 +9,17 @@ import com.example.demo.mapper.GoodsChatMapper;
 import com.example.demo.service.GoodsChatService;
 import com.example.demo.vo.Chat;
 
-/***貼文按讚的實作***/
+/**貼文按讚的實作
+ */
 @Service
 public class GoodsChatServiceImpl implements GoodsChatService {
 
 	@Autowired
 	private GoodsChatMapper gchm;
 
-	/***貼文按讚或取消***/
+	/**
+	 * 貼文按讚或取消
+	 */
 	@Override
 	public String addGoodChat(Chat c) {
 		Chat ch = gchm.queryGoodId(c);

@@ -1,12 +1,23 @@
 package com.example.demo.vo;
 
-/***商城的vo***/
+/**
+ * 商城的vo
+ */
 public class Shop {
 
+	/**鍵值*/
 	private Integer id;
+	
+	/**member的id*/
 	private Integer memberId;
+	
+	/**porder的id*/
 	private Integer porderId;
+	
+	/**數量*/
 	private Integer num;
+	
+	/**總金額*/
 	private Integer sum;
 
 	public Shop(Integer memberId, Integer porderId, Integer num, Integer sum) {

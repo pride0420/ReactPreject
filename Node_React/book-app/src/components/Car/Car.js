@@ -16,7 +16,6 @@ export default function Car() {
         axios.get(`http://localhost:8080/car/queryCar?memberId=${memberId}`)
             .then(response => {
                 setCarList(response.data);
-                console.log(response.data);
             })
     }
     const querySum = () => {
@@ -65,7 +64,9 @@ export default function Car() {
             <div id="content" className="container">
                 <div className='shop-con'>
                     <h3 className="title">| 購物車<small>Car</small></h3>
+                    {carList && carList.length > 0 ? (
                     <span><Link to='/shop'><button className='btn btn-default'>繼續購物</button></Link></span>
+                    ):''}
                     <div className="right">
                         <span>購物車金額: $<span>{sum}</span>
                             <button className='btn btn-default' onClick={btn}>結帳(ecpay)</button>

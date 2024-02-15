@@ -40,6 +40,14 @@ public interface GoodsCommentMapper {
 	Integer queryCommentId(Comment c);
 
 	/**
+	 * 統計留言按讚數
+	 * @param chatId
+	 * @return
+	 */
+	@Select("select count(*) from goodcomment where commentId=#{commentId}")
+	Integer queryGoodsCommentSum(Integer commentId);
+	
+	/**
 	 * 取消按讚留言
 	 * @param id
 	 */

@@ -26,12 +26,24 @@ public class ChatView {
 	
 	/**用於跟新chat底下comment的數量*/
 	private Integer chatSum;
+	
+	/**記錄案讚數*/
+	private Integer goodsChatSum;
+
 
 	public ChatView() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	public Integer getGoodsChatSum() {
+		return goodsChatSum;
+	}
+
+	public void setGoodsChatSum(Integer goodsChatSum) {
+		this.goodsChatSum = goodsChatSum;
+	}
+	
 	public Integer getChatSum() {
 		return chatSum;
 	}

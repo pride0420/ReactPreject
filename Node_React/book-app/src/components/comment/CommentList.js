@@ -8,7 +8,7 @@ export default class CommentList extends Component {
     }
     render() {
         const { commentInfo, memberId, queryList } = this.props;
-        const { name, firsttime, comment, commentId, chatId, item } = commentInfo;
+        const { name, firsttime, comment, commentId, chatId, item,button,goodsCommentSum } = commentInfo;
 
         // 将时间戳转换为 Date 对象
         const date = new Date(firsttime);
@@ -32,6 +32,13 @@ export default class CommentList extends Component {
                     alert(response.data);
                 })
         }
+
+        const delteComment=()=>{
+            axios.post(`http://localhost:8080/comment/deleteComment?commentId=${commentId}`)
+            .then(response=>{
+                alert(response.data);
+            })
+        }
         return (
             <>
                 <table border={1} align='center' className='table'>
@@ -46,7 +53,14 @@ export default class CommentList extends Component {
                     </tr>
                     <tr>
                         <td colSpan={2} >
-                            <button className='left' onClick={() => { goodcomment(memberId, chatId, commentId); queryList(); }}>{item ? "已按讚" : "讚"}</button>
+                            <div className='button'>
+                                <div>
+                                    <button className='button-left' onClick={() => { goodcomment(memberId, chatId, commentId); queryList(); }}>{item ? "已按讚" : "讚"}</button>
+                                    <span>{goodsCommentSum}</span>
+                                </div>
+                                <div className='button-right'>{button?<button onClick={()=>{delteComment(commentId); queryList();}}>刪除</button>:""}</div>
+                            </div>
+                           
                         </td>
                     </tr>
                 </table>

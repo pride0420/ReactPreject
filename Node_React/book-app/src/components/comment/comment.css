@@ -19,7 +19,10 @@ body{
     display: flex;
     justify-content: space-between; /* 讓子元素盡可能分散排列，左右對齊 */
 }
-.left{
+.button-left{
    
-    float: left;
+    margin-right: 10px;
+}
+.button-right{
+    margin-right: 10px;
 }

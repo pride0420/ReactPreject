@@ -27,6 +27,12 @@ public class Comment {
 	
 	/**更新按讚狀態*/
 	private boolean item;
+	
+	/**用於顯示刪除按鈕*/
+	private boolean button;
+	
+	/**記錄案讚數*/
+	private Integer goodsCommentSum;
 
 	public Comment(Integer memberId, Integer chatId, String comment) {
 		super();
@@ -38,6 +44,22 @@ public class Comment {
 	public Comment() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public Integer getGoodsCommentSum() {
+		return goodsCommentSum;
+	}
+
+	public void setGoodsCommentSum(Integer goodsCommentSum) {
+		this.goodsCommentSum = goodsCommentSum;
+	}
+
+	public boolean isButton() {
+		return button;
+	}
+
+	public void setButton(boolean button) {
+		this.button = button;
 	}
 
 	public boolean getItem() {

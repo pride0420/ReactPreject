@@ -39,6 +39,13 @@ public interface GoodsChatMapper {
 	@Select("select *from goodchat where memberId=#{memberId} and chatId=#{chatId}")
 	Chat queryGoodId(Chat c);
 
+	/**
+	 * 統計貼文按讚數
+	 * @param chatId
+	 * @return
+	 */
+	@Select("select count(*) from goodchat where chatId=#{chatId}")
+	Integer queryGoodsChatSum(Integer chatId);
 	
 	/**
 	 * 取消按讚貼文

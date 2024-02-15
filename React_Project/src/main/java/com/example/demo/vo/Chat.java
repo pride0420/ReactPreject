@@ -21,7 +21,8 @@ public class Chat {
 	
 	/**貼文時間*/
 	private Timestamp firsttime;
-
+	
+	
 	public Chat() {
 		super();
 		// TODO Auto-generated constructor stub

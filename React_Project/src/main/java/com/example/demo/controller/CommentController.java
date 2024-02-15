@@ -45,5 +45,16 @@ public class CommentController {
 	public List<Comment> queryAllComment(Integer chatId, Integer memberId) {
 		return cmsi.queryAllComment(chatId, memberId);
 	}
+	
+	/**
+	 * 刪除留言
+	 * @param commentId
+	 * @return
+	 */
+	@PostMapping("deleteComment")
+	public String deleteComment(Integer commentId) {
+		cmsi.deleteComment(commentId);
+		return "已刪除";
+	}
 
 }

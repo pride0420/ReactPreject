@@ -10,7 +10,7 @@ export default class ChatItems extends Component {
 
     render() {
         const { chatInfo, memberId, queryAll } = this.props;
-        const { chatId, name, content, firsttime, item, chatSum } = chatInfo;
+        const { chatId, name, content, firsttime, item, chatSum,goodsChatSum } = chatInfo;
 
         // 将时间戳转换为 Date 对象
         const date = new Date(firsttime);
@@ -47,8 +47,12 @@ export default class ChatItems extends Component {
                 <tr>
                     <td colSpan={2}>
                         <div className='button' >
-                            <button className='button-left' onClick={() => { addGoodChat(memberId, chatId); queryAll(); }} >{item ? "已按讚" : "讚"}</button>
-                            <div className='right-content'>
+                            <div className='content'>
+                                <button className='button-left' onClick={() => { addGoodChat(memberId, chatId); queryAll(); }} >{item ? "已按讚" : "讚"}</button>
+                                <span>{goodsChatSum}</span>
+                            </div>
+                            
+                            <div className='content'>
                                 <Link to={`/comment/${chatId}`}>
                                     <button className='button-right'>留言 </button>
                                 </Link>

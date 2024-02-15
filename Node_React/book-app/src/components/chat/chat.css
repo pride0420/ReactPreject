@@ -15,7 +15,7 @@ body{
     justify-content: space-between; /* 讓子元素盡可能分散排列，左右對齊 */
 }
 .button-left{
-    margin-left: 10px;
+    margin-right: 10px;
 }
 .button-right{
     margin-right: 10px;
@@ -25,7 +25,7 @@ body{
 
     height: 100px;
 }
-.right-content {
+.content {
     display: flex;
     align-items: center; /* 子元素垂直居中对齐 */
 }

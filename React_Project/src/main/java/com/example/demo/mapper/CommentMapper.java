@@ -2,6 +2,7 @@ package com.example.demo.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -36,5 +37,12 @@ public interface CommentMapper {
 	 */
 	@Select("select count(*) from comment where chatId=#{chatId}")
 	Integer queryCommentSum(Integer chatId);
+	
+	/**
+	 * 刪除留言
+	 * @param commentId
+	 */
+	@Delete("delete from test.comment where commentId=#{commentId}")
+	void deleteComment(Integer commentId);
 
 }

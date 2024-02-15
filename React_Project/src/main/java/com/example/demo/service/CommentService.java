@@ -12,4 +12,6 @@ public interface CommentService {
 	void addComment(Comment c);
 
 	List<Comment> queryAllComment(Integer chatId, Integer memberId);
+	
+	void deleteComment(Integer commentId);
 }

@@ -45,7 +45,9 @@ public class ChatServiceImpl implements ChatService {
 	}
 
 	/**
-	 * 查詢帳號有按讚的貼文 queryAllChat使用
+	 * 查詢帳號有按讚的貼文 並統計按讚數
+	 * 統計貼文底下的留言數
+	 * queryAllChat使用
 	 * @param memberId
 	 * @return
 	 */
@@ -57,9 +59,11 @@ public class ChatServiceImpl implements ChatService {
 		}
 		for (ChatView o : l) {
 			o.setChatSum(ctm.queryCommentSum(o.getChatId()));
+			o.setGoodsChatSum(gchm.queryGoodsChatSum(o.getChatId()));
 			for (Chat p : g) {
 				if (p.getChatId() == o.getChatId()) {
 					o.setItem(true);
+					
 				}
 			}
 		}

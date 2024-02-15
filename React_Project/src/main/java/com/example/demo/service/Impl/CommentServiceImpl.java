@@ -21,6 +21,9 @@ public class CommentServiceImpl implements CommentService {
 
 	@Autowired
 	private GoodsCommentMapper gcmp;
+	
+	@Autowired
+	private CommentMapper cmm;
 
 	/**
 	 * 新增留言
@@ -40,7 +43,11 @@ public class CommentServiceImpl implements CommentService {
 	}
 	
 	/**
-	 * 找出貼文底下有按讚的留言 queryAllComment使用
+	 * 找出貼文底下有按讚的留言 並統計按讚數
+	 * 設定留言刪除鍵的顯示
+	 * 只有發留言的帳號能刪除自己發的留言
+	 * queryAllComment使用
+	 * 
 	 * @param chatId
 	 * @param memberId
 	 * @return
@@ -51,8 +58,13 @@ public class CommentServiceImpl implements CommentService {
 
 		for (Comment o : l) {
 			o.setItem(false);
+			o.setButton(false);
 		}
 		for (Comment o : l) {
+			o.setGoodsCommentSum(gcmp.queryGoodsCommentSum(o.getCommentId()));
+			if(o.getMemberId()==memberId) {
+				o.setButton(true);
+			}
 			for (Comment p : g) {
 				if (o.getCommentId() == p.getCommentId()) {
 					o.setItem(true);
@@ -60,6 +72,14 @@ public class CommentServiceImpl implements CommentService {
 			}
 		}
 		return l;
+	}
+
+	
+	@Override
+	public void deleteComment(Integer commentId) {
+		
+		cmm.deleteComment(commentId);
+		
 	}
 
 }

@@ -17,10 +17,13 @@ export default function SetUser() {
 
     const changeUser = (e) => {
         const { name, value } = e.target;
-        if (name === 'name') {
+        //禁止第一個字輸入空格
+        if (name === 'name'&&value.startsWith(" ")) {
+            e.target.value=value.trimStart();
+        }else if(name==='name'){
             setName(value);
         }
-        if (name === 'password') {
+       if (name === 'password') {
             setPassword(value);
         }
         if (name === 'phone') {
@@ -30,6 +33,13 @@ export default function SetUser() {
             setEmail(value);
             setIsEmailValid(/^\w+@\w+\.\w+$/.test(value));
             setEmailError(/^\w+@\w+\.\w+$/.test(value) ? '' : '信箱格式不正確');
+        }
+    }
+
+    const handleKeyDown = (event) => {
+        // 檢查按鍵是否為空格，如果是則阻止默認行為
+        if (event.key === ' ') {
+            event.preventDefault();
         }
     }
 
@@ -85,15 +95,15 @@ export default function SetUser() {
                     </tr>
                     <tr>
                         <td>密碼</td>
-                        <td><input type='password' name='password' value={password} placeholder={member.password} onChange={changeUser} required /></td>
+                        <td><input type='password' name='password' value={password} placeholder={member.password} onChange={changeUser} onKeyDown={handleKeyDown} required /></td>
                     </tr>
                     <tr>
                         <td>電話</td>
-                        <td><input type='text' name='phone' pattern="\d*" value={phone} placeholder={member.phone} onChange={changeUser} required /></td>
+                        <td><input type='text' name='phone' pattern="\d*" value={phone} placeholder={member.phone} onChange={changeUser} onKeyDown={handleKeyDown} required /></td>
                     </tr>
                     <tr>
                         <td>信箱</td>
-                        <td><input type='text' name='email' value={email} placeholder={member.email} onChange={changeUser} required /><br />
+                        <td><input type='text' name='email' value={email} placeholder={member.email} onChange={changeUser} onKeyDown={handleKeyDown} required /><br />
                             {emailError && <span className='error' style={{ color: 'red' }}>{emailError}</span>}
                         </td>
                     </tr>

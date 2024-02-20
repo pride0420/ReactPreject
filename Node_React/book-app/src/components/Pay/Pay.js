@@ -48,6 +48,12 @@ export default function Pay() {
                 }
         }
     }
+    const handleKeyDown = (event) => {
+        // 檢查按鍵是否為空格，如果是則阻止默認行為
+        if (event.key === ' ') {
+            event.preventDefault();
+        }
+    }
 
     const resetEmail = () => {
         setEmail(member.email);
@@ -89,31 +95,31 @@ export default function Pay() {
                 <table width="610" border="1" align="center">
                     <tr align="center">
                         <td>信用卡號:</td>
-                        <td align="left"><input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" /> -
-                            <input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" /> -
-                            <input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" /> -
-                            <input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" /></td>
+                        <td align="left"><input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" onKeyDown={handleKeyDown}/> -
+                            <input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" onKeyDown={handleKeyDown}/> -
+                            <input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" onKeyDown={handleKeyDown}/> -
+                            <input type="text" maxlength="4" minlength="4" required size="4" pattern="\d*" onKeyDown={handleKeyDown}/></td>
                     </tr>
                     <tr align="center">
                         <td>有效年月:</td>
-                        <td align="left"><input type="text" placeholder="MM" maxlength="2" minlength="2" size="3" pattern="\d*" required />&nbsp;
-                            <input type="text" placeholder="YY" maxlength="2" minlength="2" size="3" pattern="\d*" required /></td>
+                        <td align="left"><input type="text" placeholder="MM" maxlength="2" minlength="2" size="3" pattern="\d*" onKeyDown={handleKeyDown} required />&nbsp;
+                            <input type="text" placeholder="YY" maxlength="2" minlength="2" size="3" pattern="\d*" onKeyDown={handleKeyDown} required /></td>
                     </tr>
                     <tr align="center">
                         <td>安全碼:</td>
-                        <td align="left"><input type="text" maxlength="3" minlength="3" size="3" pattern="\d*" required /></td>
+                        <td align="left"><input type="text" maxlength="3" minlength="3" size="3" pattern="\d*" onKeyDown={handleKeyDown} required /></td>
                     </tr>
                     <tr align="center">
                         <td>持卡人姓名:</td>
-                        <td align="left"><input type="text" size="5" required /></td>
+                        <td align="left"><input type="text" size="5" onKeyDown={handleKeyDown} required /></td>
                     </tr>
                     <tr align="center">
                         <td>送貨地址:</td>
-                        <td align="left"><input type="text" required /></td>
+                        <td align="left"><input type="text" onKeyDown={handleKeyDown} required /></td>
                     </tr>
                     <tr align="center">
                         <td>信箱:</td>
-                        <td align="left"><input type="text" name="email" value={email} placeholder={member.email} onChange={changeEmail} required /><br />
+                        <td align="left"><input type="text" name="email" value={email} placeholder={member.email} onChange={changeEmail} onKeyDown={handleKeyDown} required /><br />
                             {emailError && <span className='error' style={{ color: 'red' }}>{emailError}</span>}
                         </td>
                     </tr>

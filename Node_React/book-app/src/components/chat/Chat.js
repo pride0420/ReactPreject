@@ -16,9 +16,11 @@ function Chat() {
     
     const changeChat = (e) => {
         const { name, value } = e.target;
-        if (name === "content") setContent(value);
+        if (name === "content"&& value.startsWith(" ")) {
+            e.target.value=value.trimStart();
+            setContent(value);
     }
-
+    }
     const queryAll = () => {
 
         const url = `http://localhost:8080/chat/queryAll?memberId=${memberId}`;
@@ -27,7 +29,6 @@ function Chat() {
         })
             .then(response => {
                 setChatList(response.data);
-                //console.log(response.data);
             })
             .catch(error => {
                 console.error('Error fetching chat list:', error);
@@ -40,7 +41,7 @@ function Chat() {
 
     const addChat = (e) => {
         e.preventDefault();
-
+        
         const data = {
             content: content,
             memberId: memberId

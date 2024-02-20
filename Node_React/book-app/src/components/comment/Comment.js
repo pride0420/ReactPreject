@@ -17,7 +17,8 @@ function Comment() {
 
     const chlickComment = (e) => {
         const { name, value } = e.target;
-        if (name === 'comment') {
+        if (name === 'comment'&&value.startsWith(" ")) {
+            e.target.value=value.trimStart();
             setComment(value);
         }
     }

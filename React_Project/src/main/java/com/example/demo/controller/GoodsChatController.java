@@ -13,7 +13,7 @@ import com.example.demo.vo.Chat;
 /**
  * 貼文按讚的controller
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/goodchat")
 public class GoodsChatController {

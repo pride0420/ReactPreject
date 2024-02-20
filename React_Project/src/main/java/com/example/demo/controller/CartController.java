@@ -17,7 +17,7 @@ import com.example.demo.vo.Cart;
 /**
  * 購物車的controller
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/car")
 public class CartController {

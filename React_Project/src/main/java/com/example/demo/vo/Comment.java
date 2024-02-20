@@ -31,7 +31,7 @@ public class Comment {
 	/**用於顯示刪除按鈕*/
 	private boolean button;
 	
-	/**記錄案讚數*/
+	/**記錄按讚數*/
 	private Integer goodsCommentSum;
 
 	public Comment(Integer memberId, Integer chatId, String comment) {

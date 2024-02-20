@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpSession;
 /**
  * 商城的controller
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/shop")
 public class ShopController {

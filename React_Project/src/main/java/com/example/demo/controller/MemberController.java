@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpSession;
 /**
  * 帳戶的controller
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/member")
 public class MemberController {

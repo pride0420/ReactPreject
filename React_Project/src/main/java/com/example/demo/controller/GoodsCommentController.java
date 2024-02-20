@@ -13,7 +13,7 @@ import com.example.demo.vo.Comment;
 /**
  * 留言按讚的controller
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("goodComment")
 public class GoodsCommentController {

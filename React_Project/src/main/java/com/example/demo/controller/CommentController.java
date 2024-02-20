@@ -16,7 +16,7 @@ import com.example.demo.vo.Comment;
 /**
  * 留言的controller
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/comment")
 public class CommentController {

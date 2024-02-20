@@ -27,7 +27,7 @@ public class ChatView {
 	/**用於跟新chat底下comment的數量*/
 	private Integer chatSum;
 	
-	/**記錄案讚數*/
+	/**記錄按讚數*/
 	private Integer goodsChatSum;
 
 

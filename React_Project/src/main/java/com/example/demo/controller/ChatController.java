@@ -20,7 +20,7 @@ import com.example.demo.vo.view.ChatView;
 /**
  * 貼文的controller
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/chat")
 public class ChatController {

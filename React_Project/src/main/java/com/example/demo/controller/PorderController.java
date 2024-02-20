@@ -14,7 +14,7 @@ import com.example.demo.vo.Porder;
 /**
  * 商品的controller
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/porder")
 public class PorderController {
